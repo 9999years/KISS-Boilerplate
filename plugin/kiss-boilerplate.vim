@@ -1,7 +1,7 @@
 " kiss-boilerplate.vim:  (global plugin) easy boilerplate insertion
 " Last Change:           idk check the commit logs
 " Maintainer:            rebecca turner
-" Version:               1.0.0, for Vim 6.3+
+" Version:               1.0.1, for Vim 6.3+
 " URL:                   https//github.com/9999years/boiler.vim
 
 " Documentation:
