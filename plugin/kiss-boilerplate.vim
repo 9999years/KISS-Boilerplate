@@ -15,9 +15,8 @@ let loaded_boilervim = 1
 
 function InsertBoilerplate(...)
 	"current directory, up 1 and get the boilerplate dir
-	let s:file = expand('<sfile>:p:h') . '/../boilerplate/boiler.'
-	"defer to arguments over filetype option if possible, append to
-	"ext
+	let s:file = expand('<sfile>:p:h') . '/boilerplate/boiler.'
+	"defer to arguments over filetype option if possible, append to ext
 	if a:0 > 0
 		let s:file .= a:1
 	else
