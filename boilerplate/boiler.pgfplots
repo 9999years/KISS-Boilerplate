@@ -1,0 +1,14 @@
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+\newcommand{\graph}[1]{%
+\begin{tikzpicture}
+	\begin{axis}[
+		grid=none, axis lines*=center, samples=100,
+		xmin=-10,xmax=10,
+		ymin=-10,ymax=10,
+		restrict y to domain=-10:10
+		restrict x to domain=-10:10
+	]
+		\addplot[mark=none]{#1};
+	\end{axis}
+\end{tikzpicture}}

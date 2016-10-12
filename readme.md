@@ -1,4 +1,4 @@
-# KISS boilerplate
+# KISS Boilerplate
 
 > Boilerplate insertion, made stupendously simple.
 
@@ -17,15 +17,22 @@ you’re done!
 Copy the files in this repo straight into `$VIM/vimfiles` maybe? I hear people
 talk about Vundle a lot, maybe that works. I have no clue, honestly. Godspeed.
 
+## “Documentation”
+
+By default, KISS Boilerplate assumes it’s installed in
+`$VIM/vimfiles/pack/kiss-boilerplate/start/kiss-boilerplate`.
+(No, `expand('<sfile>:p:h')` doesn’t work like the docs imply.)
+If this *isn’t* where you’d like to install it, just set
+`g:kiss_boilerplate_root` to your preferred value somewhere in your `.vimrc` and
+the plugin will defer to that.
+
 ## How It Works
 
 A function (`InsertBoilerplate(...)`) and matching Ex-mode command are defined,
 and an `autocmd` is registered for `BufNewFile` so that `InsertBoilerplate` is
 called on any new files. The command uses the current filetype (or, if supplied,
 an argument for a filetype) to find a matching boiler.ft file in `boilerplate/`,
-which it then appends to the current buffer with `execute '0read'`.
-
-It amounts to a measly but sufficient 18 lines of code.
+which it then appends to the current buffer with `:read`.
 
 ## What’s Next
 
