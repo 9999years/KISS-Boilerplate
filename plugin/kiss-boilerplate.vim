@@ -13,20 +13,19 @@ if exists('loaded_boilervim')
 endif
 let loaded_boilervim = 1
 
-function InsertBoilerplate(...)
-	let s:kiss_directory =
+if !exists('g:kiss_boilerplate_root')
+	let g:kiss_boilerplate_root =
 	\'$VIM/vimfiles/pack/kiss-boilerplate/start/kiss-boilerplate'
+endif
 
-	if exists('g:kiss_boilerplate_root')
-		s:kiss_directory = g:kiss_boilerplate_root
-	endif
+"you might think: wow, a simple `expand('<sfile>:p:h')` should work!
+"well, it doesn't. if you can get it to work, great! submit a PR please
+"for now, you can override the root dir from the 'suggested' value with
+"g:kiss_boilerplate_root
+let s:basefile = expand(g:kiss_boilerplate_root) . '/boilerplate/boiler.'
 
-	"you might think: wow, a simple `expand('<sfile>:p:h')` should work!
-	"well, it doesn't. if you can get it to work, great! submit a PR please
-	"for now, you can override the root dir from the 'suggested' value with
-	"g:kiss_boilerplate_root
-	let s:file = expand(s:kiss_directory) . '/boilerplate/boiler.'
-
+function InsertBoilerplate(...)
+	let s:file = s:basefile
 	"defer to arguments over filetype option if possible, append to ext
 	if a:0 > 0
 		let s:file .= a:1
@@ -51,3 +50,13 @@ endfunction
 command -nargs=? InsertBoilerplate :call InsertBoilerplate(<args>)
 
 autocmd BufNewFile * InsertBoilerplate
+
+function EditBoilerplate(filetype)
+	let s:file = s:basefile
+	let s:file .= a:filetype
+	execute 'edit ' . fnameescape(s:file)
+	setlocal noeol
+	return
+endfunction
+
+command -nargs=1 EditBoilerplate :call EditBoilerplate(<args>)

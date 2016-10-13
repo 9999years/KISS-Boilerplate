@@ -8,8 +8,21 @@
 	bmargin=1.35in
 ]{geometry}
 
+\usepackage[small,sf,bf]{titlesec}
+\usepackage{enumitem}
+\renewcommand{\labelitemi}{---}
+
 \newcommand{\Title}{Title}
 \newcommand{\Name}{Name}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textsc{\Title},\hskip 1em \Name}
+\rhead{\thepage}
+\headheight=24pt
+\fancypagestyle{plain}{%
+\fancyhead[L]{}}
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
 
@@ -17,12 +30,11 @@
 \thispagestyle{empty}
 
 \begin{center}
-	{\scshape\Large \Title}
-
-	\Name
+	\textsc{\Large \Title}
+	\Name%
 \end{center}
 
-\vspace{1em}
+\vspace{2em}
 
 Body copy
 
