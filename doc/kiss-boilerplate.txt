@@ -1,10 +1,11 @@
-*kiss-boilerplate.txt*     For Vim version 7.0     Last change: 2016 October 17
+*kiss-boilerplate.txt*     For Vim version 7.0    Last change: 2016 October 17
+                                          *KISSBoilerplate* *KISS-Boilerplate*
 
 
                        KISS-BOILERPLATE REFERENCE MANUAL~
 
 
-==============================================================================
+============================================================================
 CONTENTS                                                        *KISScontents*
 
 1. About                                                           |KISSabout|
@@ -15,21 +16,25 @@ CONTENTS                                                        *KISScontents*
         3.1 Commands                                            |KISScommands|
         3.2 Functions                                          |KISSfunctions|
 4. Options                                                       |KISSoptions|
+5. Errors                                                         |KISSerrors|
+        5.1 Silencing Errors                             |KISSsilencingerrors|
 5. Contributing                                             |KISScontributing|
 6. License                                                       |KISSlicense|
 
-==============================================================================
+============================================================================
 1. About                                                           *KISSabout*
 
 KISS-Boilerplate is a boilerplate/snippet insertion plugin for Vim based
 around the KISS principal (Keep It Stupendously Simple) and offers a fair
 selection of customization.
 
+----------------------------------------------------------------------------
 1.1 Version                                                      *KISSversion*
 
 KISS-Boilerplate uses semver (http://semver.org/) and is currently version
-2.0.0
+2.1.0.
 
+----------------------------------------------------------------------------
 1.2 Repository                                                *KISSrepository*
 
 The official KISS-Boilerplate repository is kept at
@@ -37,31 +42,31 @@ https://github.com/9999years/kiss-boilerplate.vim
 
 Pull requests are always welcome! See also |KISScontributing|.
 
-==============================================================================
+============================================================================
 2. Prerequisites                                           *KISSprerequisites*
 
-KISS-Boilerplate requires at LEAST Vim 7.0 (which added |Dictionaries|).
+KISS-Boilerplate requires at LEAST |Vim7| (which added |Dictionaries|).
 
 It may require a Vim version greater than that, honestly, but I can't be
 bothered to track down the version each |eval| feature was introduced in, but
 I feel like 7.0 is a safe minimum.
 
-==============================================================================
+============================================================================
 3. Usage                                                           *KISSusage*
 
 NOTE: Unless KISS-Boilerplate is installed in
 $VIM/vimfiles/pack/kiss-boilerplate/start/kiss-boilerplate, you will need to
-set *g:kiss_boilerplate_root* to KISS-Boilerplate's installation path in your
+set |g:kiss_boilerplate_root| to KISS-Boilerplate's installation path in your
 |vimrc|.
 
 KISS-Boilerplate registers an |autocmd| to call *KissInsertBoilerplate* on
 |BufNewFile|, which reads the filetype (or argument, if supplied) and inserts
-the contents of *g:kiss_boilerplate_root* /boilerplate/boiler.filetype.
+the contents of |g:kiss_boilerplate_root| /boilerplate/boiler.filetype.
 
 If no such file is found or no filetype is supplied, nothing is read and no
 text is inserted, making the plugin entirely harmless to undefined filetypes.
 
-------------------------------------------------------------------------------
+----------------------------------------------------------------------------
 3.1 Commands                                                    *KISScommands*
 
 :KISSInsertBoilerplate                                *:KISSInsertBoilerplate*
@@ -75,12 +80,12 @@ text is inserted, making the plugin entirely harmless to undefined filetypes.
 
         KISSEditBoilerplate(<filetype>) (and its matching |ex-cmd|) allow you
         to easily edit a boilerplate file without having to type the whole
-        mess of *g:kiss_boilerplate_root*
+        mess of |g:kiss_boilerplate_root|
 
         It also sets |noeol|, so that inserting the boilerplate file doesn't
         lead to a spurious blank line at the end of the file.
 
-------------------------------------------------------------------------------
+----------------------------------------------------------------------------
 3.2 Functions                                                  *KISSfunctions*
 
 All the |KISScommands| have, of course, matching functions, but
@@ -89,19 +94,20 @@ listing them here would be unecessary.
 KISSReload()                                                    *KISSReload()*
 
         KISSReload() refreshes the contents of the internal variable
-        s:basefile to match *g:kiss_boilerplate_root*
+        s:basefile to match |g:kiss_boilerplate_root|
 
-        Call it after changing *g:kiss_boilerplate_root* to propogate changes,
+        Call it after changing |g:kiss_boilerplate_root| to propogate changes,
         if you don't want to restart Vim.
 
-==============================================================================
+============================================================================
 4. Options                                                       *KISSoptions*
 
-loaded_kiss_boilerplate                          *KISSloaded_kiss_boilerplate*
+g:loaded_kiss_boilerplate             *KISSloaded* *g:loaded_kiss_boilerplate*
 
-        If loaded_kiss_boilerplate exists, KISS-Boilerplate is not loaded.
+        If g:loaded_kiss_boilerplate exists, KISS-Boilerplate is not loaded.
+        (Why would you want this?)
 
-g:kiss_boilerplate_root                                             *KISSroot*
+g:kiss_boilerplate_root                   *g:kiss_boilerplate_root* *KISSroot*
 
         The root path of the folder of the KISS-Boilerplate installation.
         This should contain a plugin folder with the Vimscript file and a
@@ -113,7 +119,7 @@ g:kiss_boilerplate_root                                             *KISSroot*
         \'$VIM/vimfiles/pack/KISS-Boilerplate/start/KISS-Boilerplate'
 <
 
-g:kiss_boilerplate_synonyms                                     *KISSsynonyms*
+g:kiss_boilerplate_synonyms       *g:kiss_boilerplate_synonyms* *KISSsynonyms*
 
         A |dict| to create synonyms so that boilerplate files can be accessed
         with multiple filetypes or to extend KISS-Boilerplate as a snippet
@@ -132,13 +138,36 @@ g:kiss_boilerplate_synonyms                                     *KISSsynonyms*
                 \'expat': 'mit'
                 \}
 <
-==============================================================================
+============================================================================
+5. Errors                          *KISSfaq* *KISScommonproblems* *KISSerrors*
+
+KISS-Boilerplate directory not found                                *KISSerr1*
+
+        The directory KISS-Boilerplate expects to be installed in
+        (|g:kiss_boilerplate_root|) doesn't seem to exist!
+        Try executing these to debug your problem.
+>
+        echo g:kiss_boilerplate_root
+        echo expand(g:kiss_boilerplate_root)
+<
+        NOTE: Just because this error isn't thrown doesn't necessarily mean
+        that it's correct or that a boilerplate directory exists within it.
+        If no boilerplate directory is found, no errors will be thrown but no
+        boilerplate will be inserted.
+
+----------------------------------------------------------------------------
+5.1 Silencing Errors                                     *KISSsilencingerrors*
+                                                       *g:kiss_silence_errors*
+
+If |g:kiss_silence_errors| is set, no errors will be thrown.
+
+============================================================================
 5. Contributing                                             *KISScontributing*
 
 All contributions are welcome! I'd love to expand the collection of
 boilerplate / snippet files. Send all pull requests to the |KISSrepository|!
 
-==============================================================================
+============================================================================
 6. License                                                       *KISSlicense*
 
 KISS-Boilerplate is licensed under the MIT/Expat license, a copy of which is

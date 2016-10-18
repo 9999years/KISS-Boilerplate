@@ -1,15 +1,15 @@
 " kiss-boilerplate.vim:  (global plugin) easy boilerplate insertion
 " Last Change:           idk check the commit logs
 " Maintainer:            rebecca turner
-" Version:               2.0.0, for Vim 7.0+
+" Version:               2.1.0, for Vim 7.0+
 " URL:                   https://github.com/9999years/KISS-Boilerplate
 " Documentation:
 " It just works! But seriously, check ../doc/kiss-boilerplate.txt
 
-if exists('loaded_kiss_boilerplate')
+if exists('g:loaded_kiss_boilerplate')
 	finish
 endif
-let loaded_kiss_boilerplate = 1
+let g:loaded_kiss_boilerplate = 1
 
 "kiss_boilerplate_synonyms registers keys as synonyms to filetypes
 if !exists('g:kiss_boilerplate_synonyms')
@@ -37,6 +37,13 @@ endif
 
 "refreshes the base filepath
 function KISSReload()
+	"if root directory doesn't exist, throw error
+	if len(glob(g:kiss_boilerplate_root)) == 0
+		\ && !exists('g:kiss_silence_errors')
+		echoerr "KISSerr1: The directory KISS-Boilerplate expects to be installed in (g:kiss_boilerplate_root) doesn't seem to be a real directory! Since you're reading this message, the plugin has loaded --- make sure that g:kiss_boilerplate_root is set to the correct directory!"
+		echoerr "g:kiss_boilerplate_root = "
+			\ . expand(g:kiss_boilerplate_root)
+	endif
 	let s:basefile =
 		\ expand(g:kiss_boilerplate_root) . '/boilerplate/boiler.'
 	return

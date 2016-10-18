@@ -1,8 +1,30 @@
-!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
-!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
-!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
-!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
-!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
-!_TAG_PROGRAM_VERSION	0.0.0	//
-g:kiss_boilerplate_root	kiss-boilerplate.txt	/^        let g:kiss_boilerplate_root =$/;"	v
-g:kiss_boilerplate_synonyms	kiss-boilerplate.txt	/^        let g:kiss_boilerplate_synonyms = {$/;"	v
+:KISSEditBoilerplate	kiss-boilerplate.txt	/*:KISSEditBoilerplate*
+:KISSInsertBoilerplate	kiss-boilerplate.txt	/*:KISSInsertBoilerplate*
+KISS-Boilerplate	kiss-boilerplate.txt	/*KISS-Boilerplate*
+KISSBoilerplate	kiss-boilerplate.txt	/*KISSBoilerplate*
+KISSReload()	kiss-boilerplate.txt	/*KISSReload()*
+KISSabout	kiss-boilerplate.txt	/*KISSabout*
+KISScommands	kiss-boilerplate.txt	/*KISScommands*
+KISScommonproblems	kiss-boilerplate.txt	/*KISScommonproblems*
+KISScontents	kiss-boilerplate.txt	/*KISScontents*
+KISScontributing	kiss-boilerplate.txt	/*KISScontributing*
+KISSerr1	kiss-boilerplate.txt	/*KISSerr1*
+KISSerrors	kiss-boilerplate.txt	/*KISSerrors*
+KISSfaq	kiss-boilerplate.txt	/*KISSfaq*
+KISSfunctions	kiss-boilerplate.txt	/*KISSfunctions*
+KISSlicense	kiss-boilerplate.txt	/*KISSlicense*
+KISSloaded	kiss-boilerplate.txt	/*KISSloaded*
+KISSoptions	kiss-boilerplate.txt	/*KISSoptions*
+KISSprerequisites	kiss-boilerplate.txt	/*KISSprerequisites*
+KISSrepository	kiss-boilerplate.txt	/*KISSrepository*
+KISSroot	kiss-boilerplate.txt	/*KISSroot*
+KISSsilencingerrors	kiss-boilerplate.txt	/*KISSsilencingerrors*
+KISSsynonyms	kiss-boilerplate.txt	/*KISSsynonyms*
+KISSusage	kiss-boilerplate.txt	/*KISSusage*
+KISSversion	kiss-boilerplate.txt	/*KISSversion*
+KissInsertBoilerplate	kiss-boilerplate.txt	/*KissInsertBoilerplate*
+g:kiss_boilerplate_root	kiss-boilerplate.txt	/*g:kiss_boilerplate_root*
+g:kiss_boilerplate_synonyms	kiss-boilerplate.txt	/*g:kiss_boilerplate_synonyms*
+g:kiss_silence_errors	kiss-boilerplate.txt	/*g:kiss_silence_errors*
+g:loaded_kiss_boilerplate	kiss-boilerplate.txt	/*g:loaded_kiss_boilerplate*
+kiss-boilerplate.txt	kiss-boilerplate.txt	/*kiss-boilerplate.txt*
