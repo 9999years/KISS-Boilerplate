@@ -13,7 +13,6 @@ KISSerrors	kiss-boilerplate.txt	/*KISSerrors*
 KISSfaq	kiss-boilerplate.txt	/*KISSfaq*
 KISSfunctions	kiss-boilerplate.txt	/*KISSfunctions*
 KISSlicense	kiss-boilerplate.txt	/*KISSlicense*
-KISSloaded	kiss-boilerplate.txt	/*KISSloaded*
 KISSoptions	kiss-boilerplate.txt	/*KISSoptions*
 KISSprerequisites	kiss-boilerplate.txt	/*KISSprerequisites*
 KISSrepository	kiss-boilerplate.txt	/*KISSrepository*
@@ -22,7 +21,6 @@ KISSsilencingerrors	kiss-boilerplate.txt	/*KISSsilencingerrors*
 KISSsynonyms	kiss-boilerplate.txt	/*KISSsynonyms*
 KISSusage	kiss-boilerplate.txt	/*KISSusage*
 KISSversion	kiss-boilerplate.txt	/*KISSversion*
-KissInsertBoilerplate	kiss-boilerplate.txt	/*KissInsertBoilerplate*
 g:kiss_boilerplate_root	kiss-boilerplate.txt	/*g:kiss_boilerplate_root*
 g:kiss_boilerplate_synonyms	kiss-boilerplate.txt	/*g:kiss_boilerplate_synonyms*
 g:kiss_silence_errors	kiss-boilerplate.txt	/*g:kiss_silence_errors*

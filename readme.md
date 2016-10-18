@@ -2,15 +2,6 @@
 
 > Boilerplate and snippet insertion, made stupendously simple.
 
-## *CRITICAL* OPTION
-
-By default, KISS Boilerplate assumes it’s installed in
-`$VIM/vimfiles/pack/kiss-boilerplate/start/kiss-boilerplate`.
-(No, `expand('<sfile>:p:h')` doesn’t work like the docs imply.)
-If this *isn’t* where you’d like to install it, just set
-`g:kiss_boilerplate_root` to your preferred value somewhere in your `.vimrc` and
-the plugin will defer to that.
-
 ## Installation:
 
 ### Vim 8.0 (with +packages)
