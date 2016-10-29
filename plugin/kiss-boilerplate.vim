@@ -1,15 +1,15 @@
 " kiss-boilerplate.vim:  (global plugin) easy boilerplate insertion
 " Last Change:           idk check the commit logs
 " Maintainer:            rebecca turner
-" Version:               2.0.0, for Vim 7.0+
+" Version:               2.2.0, for Vim 7.0+
 " URL:                   https://github.com/9999years/KISS-Boilerplate
 " Documentation:
 " It just works! But seriously, check ../doc/kiss-boilerplate.txt
 
-if exists('loaded_kiss_boilerplate')
+if exists('g:loaded_kiss_boilerplate')
 	finish
 endif
-let loaded_kiss_boilerplate = 1
+let g:loaded_kiss_boilerplate = 1
 
 "kiss_boilerplate_synonyms registers keys as synonyms to filetypes
 if !exists('g:kiss_boilerplate_synonyms')
@@ -25,18 +25,21 @@ if !exists('g:kiss_boilerplate_synonyms')
 		\}
 endif
 
-"get the root plugin directory
-"you might think: wow, a simple `expand('<sfile>:p:h')` should work!
-"well, it doesn't. if you can get it to work, great! submit a PR please
-"(see :h KISScontributing) for now, you can override the root dir from the
-"'suggested' value with g:kiss_boilerplate_root
-if !exists('g:kiss_boilerplate_root')
-	let g:kiss_boilerplate_root =
-	\'$VIM/vimfiles/pack/KISS-Boilerplate/start/KISS-Boilerplate'
-endif
-
 "refreshes the base filepath
 function KISSReload()
+	"get the root plugin directory
+	if !exists('g:kiss_boilerplate_root')
+		let g:kiss_boilerplate_root =
+		\expand('<sfile>:p:h') . '../boilerplate/'
+		"\'$VIM/vimfiles/pack/KISS-Boilerplate/start/KISS-Boilerplate'
+	endif
+	"if root directory doesn't exist, throw error
+	if len(glob(g:kiss_boilerplate_root)) == 0
+		\ && !exists('g:kiss_silence_errors')
+		echoerr "KISSerr1: The directory KISS-Boilerplate expects to find boilerplate files in (g:kiss_boilerplate_root) doesn't seem to exist! Since you're reading this message, the plugin has loaded --- make sure that g:kiss_boilerplate_root is set to the correct directory!"
+		echoerr "g:kiss_boilerplate_root = "
+			\ . expand(g:kiss_boilerplate_root)
+	endif
 	let s:basefile =
 		\ expand(g:kiss_boilerplate_root) . '/boilerplate/boiler.'
 	return
