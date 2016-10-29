@@ -1,20 +1,3 @@
-\documentclass{article}
-\usepackage[
-	paperwidth=8.5in,
-	paperheight=11in,
-	portrait,
-	margin=1in,
-	tmargin=1.5in,
-	bmargin=1.35in
-]{geometry}
-
-\usepackage[small,sf,bf]{titlesec}
-\usepackage{enumitem}
-\renewcommand{\labelitemi}{---}
-
-\newcommand{\Title}{Title}
-\newcommand{\Name}{Name}
-
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
@@ -23,20 +6,3 @@
 \headheight=24pt
 \fancypagestyle{plain}{%
 \fancyhead[L]{}}
-\setlength{\parindent}{0em}
-\setlength{\parskip}{1em}
-
-\begin{document}
-\thispagestyle{empty}
-
-\begin{center}
-	\textsc{\Large \Title}
-	\Name%
-\end{center}
-
-\vspace{2em}
-
-Body copy
-
-\vfill
-\end{document}
