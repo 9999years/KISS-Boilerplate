@@ -30,8 +30,8 @@ function KISSReload()
 	"get the root plugin directory
 	if !exists('g:kiss_boilerplate_root')
 		let g:kiss_boilerplate_root =
-		\expand('<sfile>:p:h') . '../boilerplate/'
-		"\'$VIM/vimfiles/pack/KISS-Boilerplate/start/KISS-Boilerplate'
+		\'$VIM/vimfiles/pack/KISS-Boilerplate/start/KISS-Boilerplate'
+		"\expand('<sfile>:p:h') . '../boilerplate/'
 	endif
 	"if root directory doesn't exist, throw error
 	if len(glob(g:kiss_boilerplate_root)) == 0
