@@ -1,8 +1,0 @@
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
-\lhead{\textsc{\Title},\hskip 1em \Name}
-\rhead{\thepage}
-\headheight=24pt
-\fancypagestyle{plain}{%
-\fancyhead[L]{}}

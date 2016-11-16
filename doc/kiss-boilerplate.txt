@@ -32,7 +32,7 @@ selection of customization.
 1.1 Version                                                      *KISSversion*
 
 KISS-Boilerplate uses semver (http://semver.org/) and is currently version
-2.2.0.
+2.1.0.
 
 ----------------------------------------------------------------------------
 1.2 Repository                                                *KISSrepository*
@@ -54,7 +54,12 @@ I feel like 7.0 is a safe minimum.
 ============================================================================
 3. Usage                                                           *KISSusage*
 
-KISS-Boilerplate registers an |autocmd| to call |:KissInsertBoilerplate| on
+NOTE: Unless KISS-Boilerplate is installed in
+$VIM/vimfiles/pack/kiss-boilerplate/start/kiss-boilerplate, you will need to
+set |g:kiss_boilerplate_root| to KISS-Boilerplate's installation path in your
+|vimrc|.
+
+KISS-Boilerplate registers an |autocmd| to call *KissInsertBoilerplate* on
 |BufNewFile|, which reads the filetype (or argument, if supplied) and inserts
 the contents of |g:kiss_boilerplate_root| /boilerplate/boiler.filetype.
 
@@ -97,18 +102,18 @@ KISSReload()                                                    *KISSReload()*
 ============================================================================
 4. Options                                                       *KISSoptions*
 
-g:loaded_kiss_boilerplate                          *g:loaded_kiss_boilerplate*
+g:loaded_kiss_boilerplate             *KISSloaded* *g:loaded_kiss_boilerplate*
 
         If g:loaded_kiss_boilerplate exists, KISS-Boilerplate is not loaded.
-        (Why would you want this? Just uninstall the plugin)
+        (Why would you want this?)
 
 g:kiss_boilerplate_root                   *g:kiss_boilerplate_root* *KISSroot*
 
-        The root path of the folder containing boilerplate files.
-        By default, a folder named boilerplate in the same folder that
-        contains the plugin folder kiss-boilerplate.vim is found in (by
-        default, $VIM/vimfiles).
-        Hopefully, you won't have to mess with this.
+        The root path of the folder of the KISS-Boilerplate installation.
+        This should contain a plugin folder with the Vimscript file and a
+        boilerplate folder with the boilerplate files.
+
+        The default is set up for Vim 8.0's |packages|.
 >
         let g:kiss_boilerplate_root =
         \'$VIM/vimfiles/pack/KISS-Boilerplate/start/KISS-Boilerplate'

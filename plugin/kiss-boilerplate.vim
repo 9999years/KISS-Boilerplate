@@ -28,6 +28,7 @@ endif
 "refreshes the base filepath
 function KISSReload()
 	"get the root plugin directory
+	"set a default
 	if !exists('g:kiss_boilerplate_root')
 		let g:kiss_boilerplate_root =
 		\'$VIM/vimfiles/pack/KISS-Boilerplate/start/KISS-Boilerplate'
