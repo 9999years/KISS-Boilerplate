@@ -32,7 +32,7 @@ function KISSReload()
 	if !exists('g:kiss_boilerplate_root')
 		let g:kiss_boilerplate_root =
 		\'$VIM/vimfiles/pack/KISS-Boilerplate/start/KISS-Boilerplate'
-		"\expand('<sfile>:p:h') . '/../boilerplate/'
+		"\expand('<sfile>:p:h') . '../boilerplate/'
 	endif
 	"if root directory doesn't exist, throw error
 	if len(glob(g:kiss_boilerplate_root)) == 0
